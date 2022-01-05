@@ -55,14 +55,10 @@ public class FareRulesEngine implements Function<Trip, MonetaryAmount> {
 
     @Override
     public MonetaryAmount apply(Trip trip) {
-        if(anyBusTrip.test(trip)) {
-            return new MaximumPossibleFareStore().getAmounts().get(TripType.BUS);
-        }
-
-        return rules.stream()
-                    .filter(p -> p.test(trip))
-                    .map(FareRule::getAmount).collect(Collectors.toList())
-                    .stream()
-                    .min(Comparator.comparing(MonetaryAmount::getAmount)).get();
+        return anyBusTrip.test(trip) ? new MaximumPossibleFareStore().getAmounts().get(TripType.BUS) : rules.stream()
+                                                                                                            .filter(p -> p.test(trip))
+                                                                                                            .map(FareRule::getAmount).collect(Collectors.toList())
+                                                                                                            .stream()
+                                                                                                            .min(Comparator.comparing(MonetaryAmount::getAmount)).get();
     }
 }
