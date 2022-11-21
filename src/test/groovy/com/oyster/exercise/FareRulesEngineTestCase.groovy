@@ -33,8 +33,6 @@ class FareRulesEngineTestCase extends Specification {
             "Holborn"      | "Hammersmith"  | "TUBE" || "£3.00" | "Any two zones including zone 1"
             "Holborn"      | "Wimbledon"    | "TUBE" || "£3.20" | "Any two zones including zone 1"
             "Hammersmith"  | "Wimbledon"    | "TUBE" || "£2.25" | "Any two zones excluding zone 1"
-            "Wimbledon"    | "Hammersmith"  | "TUBE" || "£2.25" | "Any two zones excluding zone 1"
-            "Earl's Court" | "Wimbledon"    | "TUBE" || "£2.25" | "Any two zones excluding zone 1"
             "Holborn"      | "Wimbledon"    | "TUBE" || "£3.20" | "Any three zones"
             "Earl's Court" | "Chelsea"      | "BUS"  || "£1.80" | "Any bus trip"
     }
